@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Board;
 
 class BoardsController extends Controller
 {
@@ -13,7 +14,8 @@ class BoardsController extends Controller
      */
     public function index()
     {
-        //
+       $boards = Board::all();
+       return view('boards.index', compact('boards'));
     }
 
     /**
@@ -23,7 +25,7 @@ class BoardsController extends Controller
      */
     public function create()
     {
-        //
+        return view('boards.create');
     }
 
     /**
@@ -32,9 +34,12 @@ class BoardsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Board $board)
     {
-        //
+        $board->name = $request->name;
+        $board->description = $request->description;
+        $board->save();
+        return redirect()->action('BoardsController@index');
     }
 
     /**
@@ -43,9 +48,10 @@ class BoardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name)
     {
-        //
+        $board = Board::where('name', $name)->first();
+        return view('boards.show', compact('board'));
     }
 
     /**
@@ -54,9 +60,10 @@ class BoardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($name)
     {
-        //
+        $board = Board::where('name', $name)->first();
+        return view('boards.edit', compact('board'));
     }
 
     /**
@@ -66,9 +73,13 @@ class BoardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $name)
     {
-        //
+        $board = Board::where('name', $name)->first();
+        $board->name = $request->name;
+        $board->description = $request->description;
+        $board->save();
+        return redirect()->action('BoardsController@index');
     }
 
     /**
@@ -77,8 +88,12 @@ class BoardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($name)
     {
-        //
+        
+        $board = Board::where('name', $name)->first();
+        $board->delete();
+        return redirect()->action('BoardsController@index');
+
     }
 }
