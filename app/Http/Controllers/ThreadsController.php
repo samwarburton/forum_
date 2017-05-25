@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Board;
+use App\Thread;
+use Auth;
 
 class ThreadsController extends Controller
 {
@@ -23,7 +26,7 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        //
+        return view('threads.create');
     }
 
     /**
@@ -32,9 +35,16 @@ class ThreadsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $name, Thread $thread)
     {
-        //
+        $board = Board::where('name', $name)->first();
+        $user_id = Auth::id();
+        $thread->title = $request->title;
+        $thread->body = $request->body;
+        $thread->user_id = $user_id;
+        $thread->board_id = $board->id;
+        $thread->save();
+
     }
 
     /**
@@ -45,7 +55,7 @@ class ThreadsController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

@@ -30,8 +30,8 @@ Route::get('board/{name}/delete', 'BoardsController@destroy');
 
 //Threads route 
 Route::get('/board/{name}/thread/{id}', 'ThreadsController@show');
-Route::get('/board/{name}/thread/create', 'ThreadsController@create');
-Route::post('/board/{name}/thread/create', 'ThreadsController@store');
+Route::get('/board/{name}/newthread/', 'ThreadsController@create');
+Route::post('/board/{name}/newthread/', 'ThreadsController@store');
 Route::get('/board/{name}/thread/{id}/edit', 'ThreadsController@edit');
 Route::post('/board/{name}/thread/{id}/edit', 'ThreadsController@update');
 Route::get('/board/{name}/thread/{id}/delete', 'ThreadsController@destroy');
