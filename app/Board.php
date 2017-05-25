@@ -13,6 +13,13 @@ use App\Thread;
 class Board extends Model
 {
     public function threads(){
-    	retrun $this->hasMany('App\Thread'):
+    	return $this->hasMany('App\Thread');
     }
+
+
+
+
+
+
+
 }

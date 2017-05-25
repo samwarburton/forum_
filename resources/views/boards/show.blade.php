@@ -10,7 +10,13 @@
 	<div class="panel-heading">{{$board->name}}</div>
 	<div class="panel-body">
 
+	@foreach($board->threads as $thread)
 
+	<a href="/board/{{$board->name}}/thread/{{$thread->id}}">{{$thread->title}}</a></br>
+	Created By<p>{{$thread->user->name}}</p></br>
+	<hr>
+
+	@endforeach	
 
 	</div>
 </div>

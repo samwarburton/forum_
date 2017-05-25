@@ -53,9 +53,10 @@ class ThreadsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        
+    public function show($name, $id)
+    {   
+        $thread = Thread::where('id', $id)->first();
+        return view('threads.show', compact('thread'));
     }
 
     /**
