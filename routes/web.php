@@ -21,12 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-
-
-
 // Board Routes 
 Route::get('/board', 'BoardsController@index');
 Route::get('board/create', 'BoardsController@create');
+Route::get('/board/{name}', 'BoardsController@show');
 Route::post('board/create', 'BoardsController@store');
 Route::get('board/{id}/edit', 'BoardsController@edit');
 Route::post('board/{id}/edit', 'BoardsController@update');

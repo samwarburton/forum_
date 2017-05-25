@@ -13,8 +13,30 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
-    {
-        $this->assertTrue(true);
+
+
+    public function testBoardCreate(){
+
+    	$response = $this->get('/board/create');
+    	$response->assertStatus(200);
+
     }
+
+
+
+
+        public function testBoardCreate(){
+
+    	$response = $this->get('/board/create');
+    	$response->assertStatus(200);
+
+    }
+
+
+
+
+
+
+
+
 }
