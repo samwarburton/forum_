@@ -28,10 +28,16 @@ Route::get('board/{name}/edit', 'BoardsController@edit');
 Route::post('board/{name}/edit', 'BoardsController@update');
 Route::get('board/{name}/delete', 'BoardsController@destroy');
 
-//Threads route 
+//Threads routes
 Route::get('/board/{name}/thread/{id}', 'ThreadsController@show');
 Route::get('/board/{name}/newthread/', 'ThreadsController@create');
 Route::post('/board/{name}/newthread/', 'ThreadsController@store');
 Route::get('/board/{name}/thread/{id}/edit', 'ThreadsController@edit');
 Route::post('/board/{name}/thread/{id}/edit', 'ThreadsController@update');
 Route::get('/board/{name}/thread/{id}/delete', 'ThreadsController@destroy');
+
+
+
+//Comments Routes
+Route::post('/board/{name}/thread/{id}', 'CommentController@store');
+

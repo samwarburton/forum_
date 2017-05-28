@@ -16,8 +16,9 @@
 <div class="panel panel-default">
 	<div class="panel-heading">Create Comment</div>
 	<div class="panel-body">
-	<form>
-		<textarea class="form-control"></textarea> </br>
+	<form method="post">
+		{{csrf_field()}}
+		<textarea class="form-control" name="body"></textarea> </br>
 		<input type="submit" class="btn btn-success" name="">
 	</form>
 	</div>
