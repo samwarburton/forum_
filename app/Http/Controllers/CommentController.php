@@ -24,7 +24,7 @@ class CommentController extends Controller
     	$comment->thread_id = $id;
     	$comment->body = $request->body;
     	$comment->save();
-    	return view('home');
+    	
 
 
     }

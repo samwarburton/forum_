@@ -24,7 +24,17 @@
 	</div>
 </div>
 
+@foreach($thread->comments as $comment)
+	<div class="panel panel-default">
+	<div class="panel-heading">{{$comment->user->name}}</div>
+	<div class="panel-body">
+	<p>{{$comment->body}}</p>
+	</div>
+</div>
 
+
+
+@endforeach
 
 
 
