@@ -11,8 +11,8 @@
 		@foreach($users as $user)
 
 		<p>{{$user->name}}</p>
-		<p>{{$user->threads->count()}}</p>
-		
+		<a href="/admin/users/{{$user->id}}/edit">Edit User</a>
+
 		@endforeach
 		</div>
 	</div>

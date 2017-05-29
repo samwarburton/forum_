@@ -59,7 +59,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -71,7 +72,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $user->role = $request->role;
+        
+        $user->save();
+        return redirect()->action('UserController@index');
     }
 
     /**
