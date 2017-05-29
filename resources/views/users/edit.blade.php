@@ -13,14 +13,14 @@
 			{{csrf_field()}}
 			<label>Role:</label>
 			<select class="form-control" name="role">
-			  <option value="volvo">User</option>
-			  <option value="saab">Moderator</option>
+			  <option value="user">User</option>
+			  <option value="moderator">Moderator</option>
 			</select></br>
 
 			<label>Account status</label>
 			<select class="form-control" name="status">
-			  <option value="volvo">Active</option>
-			  <option value="saab">Banned</option>
+			  <option value="active">Active</option>
+			  <option value="banned">Banned</option>
 			</select></br>
 			<input type="submit" class="btn btn-default" value="Update User">
 		</form>

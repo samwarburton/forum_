@@ -11,6 +11,7 @@
 		@foreach($users as $user)
 
 		<p>{{$user->name}}</p>
+		<p>{{$user->role}}</p>
 		<a href="/admin/users/{{$user->id}}/edit">Edit User</a>
 
 		@endforeach
