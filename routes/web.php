@@ -41,3 +41,21 @@ Route::get('/board/{name}/thread/{id}/delete', 'ThreadsController@destroy');
 //Comments Routes
 Route::post('/board/{name}/thread/{id}', 'CommentController@store');
 
+
+//Admin routes
+Route::get('/admin/users', 'UserController@index');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
