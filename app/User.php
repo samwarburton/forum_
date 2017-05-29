@@ -27,7 +27,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    
+    public function hasRole($role){
+        return $this->role == $role;
+    }
 
 
     public function threads(){
