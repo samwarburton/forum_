@@ -29,7 +29,12 @@
 	<div class="panel panel-default">
 	<div class="panel-heading">{{$comment->user->name}}</div>
 	<div class="panel-body">
-	<p>{{$comment->body}}</p>
+	<p>{!! $comment->body !!}</p>
+	@if($comment->user->id == Auth::id())
+
+	<p>User can edit this</p>
+
+	@endif
 	</div>
 </div>
 
