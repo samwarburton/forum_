@@ -3,6 +3,12 @@
 
 @section('content')
 
+@if (session('status'))
+    <div class="alert alert-danger text-center">
+        {{ session('status') }}
+    </div>
+@endif
+
 <div class="container">
 
 

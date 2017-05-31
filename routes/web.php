@@ -43,9 +43,9 @@ Route::post('/board/{name}/thread/{id}', 'CommentController@store');
 
 
 //Admin routes
-Route::get('/admin/users', 'UserController@index');
-Route::get('/admin/users/{id}/edit', 'UserController@edit');
-Route::post('/admin/users/{id}/edit', 'UserController@update');
+Route::get('/admin/users', 'UserController@index')->middleware('auth', 'checkadmin');
+Route::get('/admin/users/{id}/edit', 'UserController@edit')->middleware('auth', 'checkadmin');
+Route::post('/admin/users/{id}/edit', 'UserController@update')->middleware('auth', 'checkadmin');
 
 
 

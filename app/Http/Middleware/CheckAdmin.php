@@ -20,6 +20,6 @@ class CheckAdmin
         return $next($request);
         }
 
-        return "You are not admin";
+        return redirect('/')->with('status', 'You do not have permission to access that area');
     }
 }
