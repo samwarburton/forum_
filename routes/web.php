@@ -48,6 +48,10 @@ Route::get('/admin/users/{id}/edit', 'UserController@edit')->middleware('auth', 
 Route::post('/admin/users/{id}/edit', 'UserController@update')->middleware('auth', 'checkadmin');
 
 
+//Profile Routes 
+Route::get('/user/{username}', 'ProfileController@show');
+Route::get('/user/{username}/edit', 'ProfileController@edit');
+Route::post('/user/{username}/edit', 'ProfileController@update');
 
 
 
