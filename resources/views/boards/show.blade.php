@@ -7,52 +7,29 @@
 
 	</div>
 	<div class="panel panel-default">
-	<div class="panel-heading"><b>{{$board->name}}</b> <a class="pull-right" href="/board/{{$board->name}}/newthread">Create New Thread</a></div>
+	<div class="panel-heading">{{$board->name}} <a class="pull-right" href="/board/{{$board->name}}/newthread">	 <span class="glyphicon glyphicon-plus
+"></span> Create New Thread</a></div>
 	<div class="panel-body">
 
 
-<table class="table">
-<h4>Threads</h4>
-<table class="table">
-	<thead>
-		<tr>
-			<th>
-			Title
-			</th>
-			<th>
-			Author
-			</th>
-			<th>
-			Created At 
-			</th>
-			<th>
-				Replies
-			</th>
-		</tr>
-	</thead>
 
-	<tbody>
 	@foreach($board->threads as $thread)
-		<tr>
-			<td>
-			<a href="">{{$thread->title}}</a>
-			</td>
-			<td>
-				{{$thread->user->name}}
-			</td>
-			<td>
-				{{$thread->created_at->format('d m y')}}
-			</td>
-			<td>
-				{{$thread->comments->count()}}
-			</td>
-		</tr>
+	<div class="row custom">
 
+	<div class="col-md-6">
+	<span class="glyphicon glyphicon-file
+"></span>
+	<a href="/board/{{$board->name}}/thread/{{$thread->id}}">{{$thread->title}}</a>
+	</div>
+
+	<div class="col-md-3">
+	<p>Replies: {{$thread->comments->count()}}</p>
+	</div>
+	<div class="col-md-3">
+	Created: {{$thread->created_at}} By <a href="/user/{{$thread->user->name}}">{{$thread->user->name}}</a>	</div>
+
+	</div>
 	@endforeach	
-	</tbody>
-</table>
-
-
 
 
 
