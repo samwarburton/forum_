@@ -95,9 +95,13 @@ class ThreadsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $name, $id)
     {
-        //
+        $thread = Thread::where('id', $id)->first();
+        $thread->title = $request->title;
+        $thread->body = $request->body;
+        $thread->save();
+        return redirect()->back()->with('message', 'Thread updated!');
     }
 
     /**
