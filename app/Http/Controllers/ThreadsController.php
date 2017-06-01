@@ -75,9 +75,17 @@ class ThreadsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    // This would be better to use middleware here 
+
+    public function edit($name, $id)
     {
-        //
+        $thread = Thread::where('id', $id)->first();
+        
+        if(Auth::id() == $thread->user_id){
+            return view('threads.edit', compact('thread'));
+        } else {
+            return $request->session()->flash('status', 'You do not have permission to do that');
+        }
     }
 
     /**

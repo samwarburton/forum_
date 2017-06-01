@@ -5,7 +5,11 @@
 <div class="col-md-10 col-md-offset-1">
 
 	<div class="panel panel-default">
-	<div class="panel-heading">Created {{$thread->created_at->format(' h:i a, D M y')}}</div>
+	<div class="panel-heading">Created {{$thread->created_at->format(' h:i a, D M y')}}
+	@if(Auth::id() == $thread->user_id)
+	<a href="{{$thread->id}}/edit" class="pull-right">Edit</a>
+	@endif
+	</div>
 	<div class="panel-body">
 	<div class="col-md-2">
 	<img class="img img-responsive" src="https://freeiconshop.com/wp-content/uploads/edd/person-flat.png">
