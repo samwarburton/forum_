@@ -39,7 +39,8 @@ class BoardsController extends Controller
         $board->name = $request->name;
         $board->description = $request->description;
         $board->save();
-        return redirect()->action('BoardsController@index');
+        $name = $board->name;
+        return redirect()->action('BoardsController@show', compact('name'));
     }
 
     /**

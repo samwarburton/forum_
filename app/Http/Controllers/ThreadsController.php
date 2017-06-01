@@ -51,6 +51,9 @@ class ThreadsController extends Controller
         $thread->user_id = $user_id;
         $thread->board_id = $board->id;
         $thread->save();
+        $id = $thread->id;
+        $name = $thread->board->name;
+       // Two parametres need to be passed here 
 
     }
 
